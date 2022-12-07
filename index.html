@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styleProgressBar.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    
+    <div class="control-progressBar">
+        <div class="barra_progreso" id="barra_progreso">
+            <span class="progreso" id="progreso">
+                <div id="porcentaje">75</div>
+            </span>
+        </div>
+    </div>
+
+
+    <script>
+        const barraprogreso = document.getElementById('barra_progreso');
+        const progreso = document.getElementById('progreso');
+        const porcentaje = document.getElementById('porcentaje');
+        let cantidad = 0;
+        let totalPorcentaje = porcentaje.innerText;
+
+        let tiempo = setInterval(() => {
+            cantidad += 1;
+            progreso.style.width = `${cantidad}%`;
+
+            if (cantidad == totalPorcentaje) {
+                clearInterval(tiempo);
+                barraprogreso.style.backgroundColor = "#ac3f1700";
+            }
+
+            porcentaje.textContent = `${cantidad}%`;
+
+        }, 70);
+
+    </script>
+
+</body>
+</html>
